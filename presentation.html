@@ -61,15 +61,17 @@ class: middle center
 
 class: middle center
 
-# Waarom CLI's?
-
-### CLI's zijn geweldig!
+# `Command Line Interface`
 
 ???
-- 
-- Multi-platform interface
-- Scriptbaar
-- Intuitief
+Command line interface heet zo omdat door middel van commando-regels met
+een programma geinteracteerd wordt.  
+  
+Tijd voor een voorbeeld:
+
+```bash
+cowsay "Hello World"
+```
 
 ---
 
@@ -78,8 +80,9 @@ class: center middle
 Applicatie  
   
 User Interface gebaseerd op commando-regels  
-  
+
 Niet low level
+
   
 ???
   
@@ -89,14 +92,39 @@ een commando altijd een nieuw prgramma uitvoert.
 Mensen denken dat een CLI geen user interface is, omdat hij niet grafisch is.
 Een CLI is wel degelijk een user interface.
 
--- *Laat hier zien hoe zo'n commando-regel eruit ziet:* --  
-`cowsay 'Hello World!'`
-  
 Een CLI is niet low level. CLI's
 zijn programma's, en dat betekent dat het uitvoeren van een commando vergelijkbaar is met
 het openen van notepad of firefox.
   
 
+
+---
+
+class: middle center
+
+# Hoe gebruik je een CLI
+
+`programma-naam [ ARGUMENTEN ]`
+  
+
+???
+-- *Laat hier zien hoe zo'n commando-regel eruit ziet:* --  
+`cowsay 'Hello World!'`
+  
+
+---
+
+class: middle center
+
+## Nuanceren met opties:
+
+`cowsay -f tux 'Hallo'`
+
+`git push --force`
+
+???
+
+Bijzonder: opties maken het mogelijk om bepaalde dingen aan of uit te zetten
 
 ---
 
@@ -142,7 +170,7 @@ Dat betekent dat er niet veel toetsen nodig zijn om iets voor elkaar te krijgen.
 
 class: center middle
 
-# Korte ontwikkeltijd
+# CLI's zijn snel gebouwd 
 
 Generieke, simpele cross-platform UI
   
@@ -196,20 +224,21 @@ Dit maakt CLI's ideaal om werk te automatiseren.
 
 class: center middle
 
-# Shells
-
-### Een programmeur zijn beste vriend
-
----
-
-class: center middle
-
 # Wat is een shell
 
-UI voor commando's
+Shell == Schil
 
-Script taal voor commando's
+Omgeving waar applicaties in draaien
 
+Proces manager
+
+???
+
+Een shell is eigenlijk een schil om een OS, die een omgeving biedt waarmee met het OS gecommuniceerd kan worden.
+
+Een shell biedt dus een **beheerbare** omgeving waar applicaties in kunnen draaien.
+
+Omdat de shell die applicaties beheert is de shell dus ook de manager van de processen die erin draaien.
 
 ---
 
@@ -293,13 +322,9 @@ class: center middle
 
 TAB-Completion
 
-Job control
-
 Globbing: `./mapje/*`
 
 brace-expansion: `{1..10}`
-
-Pipes: `|`
 
 ???
 
@@ -315,21 +340,6 @@ grep --<TAB>
 sudo apt-get install mariad<TAB>
 ```
 
-Job Control
-
-```
-htop
-
-vim
-
-while true; echo "Hello World!"; sleep 1; done
-
-fg
-
-jobs
-
-```
-
 Globbing
 
 ```
@@ -337,10 +347,23 @@ cp ./assets/images/* ~/backups
 
 cd "$(mktemp -d)"
 
-touch file{1,5}.ext
+touch file{1..10}.ext
 
 rm !(file3.ext|5)
 ```
+
+
+---
+
+class: center middle
+
+# Pipes
+
+Pipe teken: `|`
+
+Output van het ene programma als input voor het andere
+
+???
 
 Pipes
 
@@ -355,21 +378,124 @@ for i in {1..100}; do echo "This is number $i"; done | sed 's/number/dog/g' | le
 
 ---
 
+class: middle
+
+# Aliases, functies en .bashrc
+
+`$HOME/.bashrc`  
+`$HOME/.bash_aliases`
+
+`alias cowhead='cowsay -f head_in'`
+
+```
+debugserver() {
+    sleep 1 && $BROWSER localhost:8888/app_dev.php & 
+    XDEBUG_CONFIG='idekey=pugdebug' php -S localhost:8888 -t public
+}
+```
+
+???
+
+De bashrc is een soort configuration file.
+
+Commando's die in de bashrc staan worden bij het openen van een shell uitgevoerd.
+
+Dit kan dus leuk zijn voor een welkomst-berichtje.
+
+Is ook leuk voor functies en aliasen.
+
+Functies en aliasen zijn handig voor dingen die je vaak doet
+
+Voorbeeld: `alias p`
+
+---
+
 class: center middle
 
 # BASH als script taal
 
-`#!/bin/bash` (she-bang|hashbang|bang)
+she-bang: `#!/bin/bash`
 
-control structures
+???
+Een shebang vertelt aan de het OS waarmee een script uitgevoerd kan worden.
 
-variables
+---
 
-functions
+class: middle center
 
-builtins
+# Variables
 
-return codes
+Loose typing
+
+`foo="bar"`
+
+Interpolatie met "`$`"
+
+`echo "$foo"`
+
+???
+
+In bash is eigenlijk alles een string.
+
+---
+
+class: middle
+
+# Environment variables
+
+Leesbaar voor sub-processen
+
+Gebruikt voor configuratie
+
+```
+# set db connection
+export DB_CONNECTION_STRING='mysql:dbname=testdb;host=127.0.0.1'
+
+# Compile java met classpath
+`CLASSPATH="./classes:$CLASSPATH" java -jar somejar.jar`
+```
+
+
+---
+
+class: center middle
+
+# Return codes
+
+tussen 0 en 255
+
+0 == succes
+
+Groter dan 0 == error
+
+
+---
+
+class: center middle
+
+# Control structures
+
+`if ... then`
+
+`case ... in`
+
+`while ... do`
+
+`for ... in ... do`
+
+???
+
+NET ALS een programmeer-taal
+
+if kan ook checken of een commando succesvol was.
+
+---
+
+class: middle center
+
+# `exit 0`
+
+Vragen?
 
 ---
 
@@ -377,8 +503,8 @@ return codes
         <script src="assets/js/remark-latest.min.js">
         </script>
         <script>
-            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-                ':9999/livereload.js?snipver=1"></' + 'script>')
+//            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+//                ':9999/livereload.js?snipver=1"></' + 'script>')
 
             var slideshow = remark.create();
         </script>

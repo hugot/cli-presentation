@@ -58,19 +58,14 @@ build() {
     fi
 
     declare -a slides=()
-    for slide in ./slides/*.md; do
-        if [[ $slide != './slides/'+([0-9])_* ]]; then
-            printf 'Invalid slide name "%s" encountered. Stopping build.\n' "$slide" >&2
+    while read -r slide; do
+        [[ -n $slide ]] || continue
 
-            return 1
-        fi
-
-        declare slide_number="${slide%%_*}"
-        slides[${slide_number##*/}]="$slide"
-    done
+        slides[${#slides[@]}]="$slide"
+    done < slidesfile
 
     for i in ${!slides[@]}; do
-        cat "${slides[$i]}"
+        cat "./slides/${slides[$i]}"
         echo -e '\n---\n'
     done | fillTemplate "$template_file" | dumpPresentation "$presentation_file"
 }

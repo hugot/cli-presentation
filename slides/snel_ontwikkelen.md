@@ -1,6 +1,6 @@
 class: center middle
 
-# Korte ontwikkeltijd
+# CLI's zijn snel gebouwd 
 
 Generieke, simpele cross-platform UI
   
