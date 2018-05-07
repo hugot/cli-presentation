@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shells en CLI's</title>
+        <meta charset="utf-8">
+        <style>
+@import 'assets/css/vendor/Yanone_Kaffeesatz.css';
+@import 'assets/css/vendor/Droid_Serif.css';
+@import 'assets/css/vendor/Ubuntu_Mono.css';
+@import 'assets/css/mainstylesheet.css';
+
+body { font-family: 'Droid Serif'; }
+h1, h2, h3 {
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: normal;
+}
+
+      p {
+          font-size: xx-large;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+        </style>
+    </head>
+    <body>
+        <textarea id="source">
+
+class: middle center
+
+# Shells en CLI's
+
+#### Hugo Thunnissen
+
+---
+
+class: center middle
+
+# Over mij
+
+Software Engineering  
+  
+Hostnet  
+  
+github.com/hugot  
+  
+
+???
+Tweede jaar software engineering  
+  
+Junior programmeur bij hostnet  
+  
+Te vinden op github, met veel CLI projecten en web apps.  
+  
+
+---
+
+class: middle center
+
+# Wat is een CLI
+
+---
+
+class: middle center
+
+# Waarom CLI's?
+
+### CLI's zijn geweldig!
+
+???
+- 
+- Multi-platform interface
+- Scriptbaar
+- Intuitief
+
+---
+
+class: center middle
+
+Applicatie  
+  
+User Interface gebaseerd op commando-regels  
+  
+Niet low level
+  
+???
+  
+Commando's of CLI's zijn altijd op zichzelf staande applicaties. Dat betekent dat
+een commando altijd een nieuw prgramma uitvoert.
+  
+Mensen denken dat een CLI geen user interface is, omdat hij niet grafisch is.
+Een CLI is wel degelijk een user interface.
+
+-- *Laat hier zien hoe zo'n commando-regel eruit ziet:* --  
+`cowsay 'Hello World!'`
+  
+Een CLI is niet low level. CLI's
+zijn programma's, en dat betekent dat het uitvoeren van een commando vergelijkbaar is met
+het openen van notepad of firefox.
+  
+
+
+---
+
+class: middle center
+
+# Waarom CLI's?
+
+---
+
+class: middle center
+
+# Waarom CLI's?
+
+### CLI's zijn geweldig!
+
+???
+- Snel te ontwikkelen
+- Multi-platform interface
+- Scriptbaar
+- Intuitief
+
+---
+
+class: center middle
+
+# CLI's zijn direct
+
+Commando's zijn Kort, Expressief en Krachtig  
+  
+`git commit`
+
+`npm install`
+
+`firefox www.stackoverflow.com`
+
+???
+Commando's zijn kort, krachtig, en expressief.  
+Dat betekent dat er niet veel toetsen nodig zijn om iets voor elkaar te krijgen.  
+  
+
+
+---
+
+class: center middle
+
+# Korte ontwikkeltijd
+
+Generieke, simpele cross-platform UI
+  
+Andere CLI's vullen aan, dus minder features
+
+`minder_code == minder_bugs`
+
+???
+Command line interfaces zijn simpel om te ontwikkelen. Het registreren van argumenten
+en die afhandelen is code die in elke CLI gebruikt wordt, je hoeft dus niet voor elke applicatie
+een nieuwe GUI te ontwerpen.
+
+Omdat de interface met commando-regels gaat, hoeft geen functionaliteit geimplementeerd te worden die
+al in andere CLI's beschikbaar is. Dat betekent dat bijvoorbeeld zoekfuncties en file-management functies niet
+nodig zijn.
+
+Omdat er minder code nodig is, zullen er ook minder bugs in de applicatie zitten.
+
+---
+
+class: middle
+
+# CLI's zijn scriptbaar
+
+```ruby
+# Ruby
+output = %x[ echo "Hello World!" ]
+```
+
+```java
+// Java
+System.getRuntime().exec("echo 'Hello World!'");
+
+```
+
+```php
+// PHP
+$output = system('echo "Hello World!"');
+```
+
+```bash
+# Bash
+output="$(echo "Hello World!")"
+```
+
+???
+Commando's zijn makkelijk uit te voeren vanuit andere programma's. 
+Dit maakt CLI's ideaal om werk te automatiseren.
+
+---
+
+class: center middle
+
+# Shells
+
+### Een programmeur zijn beste vriend
+
+---
+
+class: center middle
+
+# Wat is een shell
+
+UI voor commando's
+
+Script taal voor commando's
+
+
+---
+
+class: center middle
+
+# Populaire shells
+
+Microsoft Powershell
+
+Bourne Shell
+
+GNU BASH
+
+Z-Shell
+
+
+???
+Powershell is er voor winows EN Linux
+
+bash is een fork van de Bourne shell
+
+Z-Shell is een fork van bash
+
+Alle UNIX-achtige shells zijn beschikbaar op windows via de WSL
+
+---
+
+class: center middle
+
+# De Bourne Again Shell (BASH)
+
+Fork van de Bourne Shell
+
+Veel features
+
+Meest gebruikt
+
+???
+BASH is een fork van de bourne shell en is ontstaan uit een verlangen naar
+een gebruikersvriendelijkere shell.
+
+Daarom heeft bash veel meer features dan de Bourne Shell zoals auto-completion, support voor functies,
+veel chortcuts en meer programmeer-features.
+
+Bash is de meest gebruikte shell BY FAR. Zo is bash de standaard shell van bijna alle liux distributies.
+
+---
+
+class: center middle
+
+# BASH is overal
+
+Docker
+
+Continuous Integration en Delivery
+
+Linux
+
+Windows Subsystem for Linux
+
+???
+
+Dockerfiles zijn praktisch een soort speciale bash scripts.
+
+CI-scripts worden vaak geschreven in bash, dit is omdat bash super goed is in het uitvoeren van verschillende
+programmas's (Daar is het zo ongeveer voor gemaakt).
+
+Omdat bash zo populair is en eigenlijk een onmisbare tool voor veel developers, heeft mirosoft geinvesteerd
+in het WSL.
+
+De WSL maakt het mogelijk om een bash shell te gebruiken in een gesimuleerde linux omgeving,
+met alle tools die daarbij horen
+
+(bash is niks zonder alle tools).
+
+---
+
+class: center middle
+
+# BASH als UI
+
+TAB-Completion
+
+Job control
+
+Globbing: `./mapje/*`
+
+brace-expansion: `{1..10}`
+
+Pipes: `|`
+
+???
+
+BASH heeft veel features die het makkelijker maken om de shell interactief te gebruiken.
+
+Voorbeelden daarvan zijn:
+
+Completion
+
+```
+grep --<TAB>
+
+sudo apt-get install mariad<TAB>
+```
+
+Job Control
+
+```
+htop
+
+vim
+
+while true; echo "Hello World!"; sleep 1; done
+
+fg
+
+jobs
+
+```
+
+Globbing
+
+```
+cp ./assets/images/* ~/backups
+
+cd "$(mktemp -d)"
+
+touch file{1,5}.ext
+
+rm !(file3.ext|5)
+```
+
+Pipes
+
+```
+fortune | cowsay
+
+for i in {1..100}; do echo "This is number $i"; done | grep '1' | less
+
+for i in {1..100}; do echo "This is number $i"; done | sed 's/number/dog/g' | less
+
+```
+
+---
+
+class: center middle
+
+# BASH als script taal
+
+`#!/bin/bash` (she-bang|hashbang|bang)
+
+control structures
+
+variables
+
+functions
+
+builtins
+
+return codes
+
+---
+
+        </textarea>
+        <script src="assets/js/remark-latest.min.js">
+        </script>
+        <script>
+            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+                ':9999/livereload.js?snipver=1"></' + 'script>')
+
+            var slideshow = remark.create();
+        </script>
+    </body>
+</html>
