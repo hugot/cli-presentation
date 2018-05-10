@@ -1,10 +1,14 @@
 #!/bin/bash
+##
+# First draft of a script for the management of remark projects.
+#
+# Author: Hugo Thunnissen <hugo.thunnissen@gmail.com>
 
 set -euo pipefail
 
 printUsage() {
     cat <<'EOF'
-remarker.bash - Manage remarker projects
+remarker.bash - Manage remark projects
 
 commands:
     build [ OUTFILE ]: Build the html file.
@@ -23,7 +27,7 @@ fillTemplate() {
     declare -r template_file="$1"
     
     if ! [[ -f $template_file ]]; then
-        echo 'Template file "%s" not found. Stopping templat fill.\n' "$template_file"
+        printf 'Template file "%s" not found. Stopping fill-template action.\n' "$template_file" >&2
 
         return 1
     fi
@@ -80,11 +84,11 @@ execute() {
 
     case "$1" in
         build)
-            build ./assets/template.html ./presentation.html
+            build ./assets/template.html ./index.html
             echo 'Build done.'
             ;;
         show)
-            xdg-open ./presentation.html
+            xdg-open ./index.html
             ;;
         add)
             :

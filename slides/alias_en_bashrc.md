@@ -26,4 +26,4 @@ Is ook leuk voor functies en aliasen.
 
 Functies en aliasen zijn handig voor dingen die je vaak doet
 
-Voorbeeld: `alias p`
+Voorbeeld: `alias cowhead='cowsay -f head-in'`
