@@ -26,10 +26,10 @@ Windows Subsystem for Linux (WSL). Hoe je dit kunt doen vind je
 
 
 ## Verdere leerstof
-Sommigen van jullie vroegen na afloop van de presentatie waar je meer informatie kon vinden
+Sommigen van jullie vroegen na afloop van de presentatie waar je meer informatie kunt vinden
 over de BASH shell. Hieronder vind je een lijst met plekken waar je meer info kunt vinden.
 
-- [guide.bash.academy](https://guide.bash.academy/), deze guide is nog niet af maar de eerste paar hoofdstukken zijn een goede introductie: 
+- [guide.bash.academy](https://guide.bash.academy/), deze guide is nog niet af maar de eerste paar hoofdstukken zijn een goede introductie.
 - [De BASH hackers wiki](http://wiki.bash-hackers.org/start)
 - [BashGuide](http://mywiki.wooledge.org/BashGuide)
 - [Unix mages](http://unixmages.com/), gratis ebook met veel informatie over "The Unix way" die van pas zal komen bij het schrijven van shell scripts.
