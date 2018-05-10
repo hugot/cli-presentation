@@ -5,14 +5,18 @@ wordt ook dieper ingegaan op de BASH shell en haar features.
 
 ## De presentatie bekijken
 Ik heb github pages aangezet voor deze repository, dus de presentatie zou publiek beschikbaar moeten zijn
-via deze URL: [https://hugot.github.io/cli-presentation/](https://hugot.github.io/cli-presentation/).
+via deze URL: [https://hugot.github.io/cli-presentation/](https://hugot.github.io/cli-presentation/).  
+Tip: druk op "p" om de notities bij de slides te zien.
 
 ## De presentatie aanpassen of genereren voor eigen gebruik
 Ik heb bij het maken van deze presentatie een bash-scriptje geschreven om het HTML bestand te genereren
 dat de inhoud bevat. het scriptje heet `remarker.bash` en bevind zich in de root van van het project.
 Om de het HTML bestand opnieuw te genereren nadat je de markdown bestanden hebt aangepast kun je het
 commando `./remarker.bash build` uitvoeren. Om met de bestanden te werken kun je de repository natuurlijk
-gewoon clonen.
+gewoon clonen.  
+
+Meer info over remark, het javascript/css tooltje waarmee ik deze slides in elkaar heb gezet, zie de
+[github repo](https://github.com/gnab/remark)
 
 
 ## BASH op windows
